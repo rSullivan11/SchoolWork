@@ -1,0 +1,7 @@
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\vc140.pdb
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\vc140.idb
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\main.obj
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\rectangle.obj
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\project.tlog\cl.command.1.tlog
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\project.tlog\cl.read.1.tlog
+d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\debug\project.tlog\cl.write.1.tlog

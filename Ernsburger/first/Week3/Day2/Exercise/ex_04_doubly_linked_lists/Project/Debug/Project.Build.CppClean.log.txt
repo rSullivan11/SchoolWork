@@ -1,0 +1,13 @@
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\vc140.pdb
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\vc140.idb
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\doublylist.obj
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\main.obj
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\debug\project.ilk
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\debug\project.exe
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\debug\project.pdb
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\project.tlog\cl.command.1.tlog
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\project.tlog\cl.read.1.tlog
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\project.tlog\cl.write.1.tlog
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\project.tlog\link.command.1.tlog
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\project.tlog\link.read.1.tlog
+d:\school\class\science\computerscience\c++\a250\week3\day2\exercise\ex_04_doubly_linked_lists\project\debug\project.tlog\link.write.1.tlog

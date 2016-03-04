@@ -1,0 +1,16 @@
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\vc120.pdb
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\vc120.idb
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\course.obj
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\main.obj
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\person.obj
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\student.obj
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\studentlist.obj
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\debug\project.ilk
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\debug\project.exe
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\debug\project.pdb
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\project.tlog\cl.command.1.tlog
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\project.tlog\cl.read.1.tlog
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\project.tlog\cl.write.1.tlog
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\project.tlog\link.command.1.tlog
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\project.tlog\link.read.1.tlog
+d:\school\class\science\computerscience\c++\a250\project\workingon\project_1a_person_course\project\debug\project.tlog\link.write.1.tlog

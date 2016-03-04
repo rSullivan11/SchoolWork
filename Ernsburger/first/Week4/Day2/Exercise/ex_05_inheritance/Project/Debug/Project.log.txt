@@ -1,0 +1,20 @@
+﻿Build started 9/30/2015 9:44:39 PM.
+     1>Project "D:\School\Class\Science\ComputerScience\C++\A250\Week4\Day2\Exercise\ex_05_inheritance\Project\Project.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         D:\Programs\Tools\IDE\VisualStudio\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Parallelepiped.cpp Main.cpp Rectangle.cpp
+         Rectangle.cpp
+         Main.cpp
+     1>d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\parallelepiped.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         Parallelepiped.cpp
+     1>d:\school\class\science\computerscience\c++\a250\week4\day2\exercise\ex_05_inheritance\project\parallelepiped.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         Generating Code...
+       Link:
+         D:\Programs\Tools\IDE\VisualStudio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\School\Class\Science\ComputerScience\C++\A250\Week4\Day2\Exercise\ex_05_inheritance\Debug\Project.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\School\Class\Science\ComputerScience\C++\A250\Week4\Day2\Exercise\ex_05_inheritance\Debug\Project.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\School\Class\Science\ComputerScience\C++\A250\Week4\Day2\Exercise\ex_05_inheritance\Debug\Project.lib" /MACHINE:X86 Debug\Parallelepiped.obj
+         Debug\Main.obj
+         Debug\Rectangle.obj
+         Project.vcxproj -> D:\School\Class\Science\ComputerScience\C++\A250\Week4\Day2\Exercise\ex_05_inheritance\Debug\Project.exe
+     1>Done Building Project "D:\School\Class\Science\ComputerScience\C++\A250\Week4\Day2\Exercise\ex_05_inheritance\Project\Project.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.98

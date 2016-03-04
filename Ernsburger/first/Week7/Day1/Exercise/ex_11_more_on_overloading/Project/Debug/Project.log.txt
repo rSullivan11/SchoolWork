@@ -1,0 +1,19 @@
+﻿Build started 10/5/2015 8:11:17 AM.
+     1>Project "C:\Users\Gabriella\Desktop\OCC\A250\__CS_A250_TODAY\__Day_1\Ex_11_More_on_Overloading\ex_11_more_on_overloading\Project\Project.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp MyInteger.cpp
+         MyInteger.cpp
+         Main.cpp
+     1>c:\users\gabriella\desktop\occ\a250\__cs_a250_today\__day_1\ex_11_more_on_overloading\ex_11_more_on_overloading\project\main.cpp(17): error C2065: 'MyInteger' : undeclared identifier
+     1>c:\users\gabriella\desktop\occ\a250\__cs_a250_today\__day_1\ex_11_more_on_overloading\ex_11_more_on_overloading\project\main.cpp(17): error C2146: syntax error : missing ';' before identifier 'num'
+     1>c:\users\gabriella\desktop\occ\a250\__cs_a250_today\__day_1\ex_11_more_on_overloading\ex_11_more_on_overloading\project\main.cpp(17): error C3861: 'num': identifier not found
+     1>c:\users\gabriella\desktop\occ\a250\__cs_a250_today\__day_1\ex_11_more_on_overloading\ex_11_more_on_overloading\project\main.cpp(24): error C2065: 'num' : undeclared identifier
+     1>c:\users\gabriella\desktop\occ\a250\__cs_a250_today\__day_1\ex_11_more_on_overloading\ex_11_more_on_overloading\project\main.cpp(24): error C2228: left of '.intLength' must have class/struct/union
+                 type is 'unknown-type'
+     1>c:\users\gabriella\desktop\occ\a250\__cs_a250_today\__day_1\ex_11_more_on_overloading\ex_11_more_on_overloading\project\main.cpp(31): error C2065: 'num' : undeclared identifier
+         Generating Code...
+     1>Done Building Project "C:\Users\Gabriella\Desktop\OCC\A250\__CS_A250_TODAY\__Day_1\Ex_11_More_on_Overloading\ex_11_more_on_overloading\Project\Project.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.36
