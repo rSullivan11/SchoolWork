@@ -36,7 +36,7 @@ void processChoice(CandidateList& candidateList)
 {
 	int choice;
 	cout << "\nEnter your choice: ";
-	cin >> choice; 
+	cin >> choice;
 
 	while (choice > 0 && choice < 5)
 	{
@@ -47,13 +47,13 @@ void processChoice(CandidateList& candidateList)
 		switch(choice)
 		{
 			// Print all candidates
-		case 1: 
+		case 1:
 			cout << endl;
 			candidateList.printAllCandidates();
 			break;
 
 			// Print a candidates's division votes
-		case 2: 
+		case 2:
 			cout << "\nEnter candidate's social security number (no dashes): ";
 			cin >> ssn;
 			cout << endl;
@@ -64,7 +64,7 @@ void processChoice(CandidateList& candidateList)
 			break;
 
 			// Print a candidate's total votes
-		case 3: 
+		case 3:
 			cout << "\nEnter candidate's social security number (no dashes): ";
 			cin >> ssn;
 			cout << endl;
@@ -74,7 +74,7 @@ void processChoice(CandidateList& candidateList)
 			break;
 
 			// Print winner
-		case 4: 
+		case 4:
 			ssn = candidateList.getWinner();
 			if (ssn != 0)
 			{
@@ -90,7 +90,7 @@ void processChoice(CandidateList& candidateList)
 			}
 			break;
 
-		default: 
+		default:
 			cout << "Sorry. That is not a selection." << endl;
 		}
 

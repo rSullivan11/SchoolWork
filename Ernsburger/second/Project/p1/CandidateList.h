@@ -11,7 +11,7 @@ class Node
 {
 public:
 	Node(){}
-    Node(const CandidateType& votes, Node *theLink) 
+    Node(const CandidateType& votes, Node *theLink)
 		: candidate(votes), link(theLink){}
     Node* getLink( ) const { return link; }
 	CandidateType getCandidate( ) const { return candidate; }
@@ -27,7 +27,7 @@ class CandidateList
 public:
     CandidateList();
 
-    void addCandidate(CandidateType);
+    void addCandidate(const CandidateType&);
 
     int getWinner() const;
 
@@ -35,7 +35,7 @@ public:
     void printAllCandidates() const;
     void printCandidateDivisionVotes(int, int) const;
     void printCandidateTotalVotes(int) const;
-    
+
     void destroyList();
 
     ~CandidateList();

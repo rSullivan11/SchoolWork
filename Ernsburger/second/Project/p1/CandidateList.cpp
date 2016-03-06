@@ -7,14 +7,18 @@ CandidateList::CandidateList() {
     count = 0;
 }
 
-void CandidateList::addCandidate(CandidateType c) {
+void CandidateList::addCandidate(const CandidateType& c) {
     Node *add = new Node(c, NULL);
-    last->getLink()->setLink(add);
-    last = add;
+    if (count == 0) { first = add; last = add; }
+    else {
+        last->setLink(add);
+        last = add;
+    }
+    ++count;
 }
 
 int CandidateList::getWinner() const {
-    if (count == 0) cout << "The list is empty." << endl;
+    if (count == 0) cout << "List is empty." << endl;
     else {
         int highest = 0, winner = 0;
         Node *current = first;
@@ -34,7 +38,7 @@ void CandidateList::printCandidateName(int ssn) const {
     Node *current = first; bool found = false;
     while (!found && current != NULL) {
         if (current->getCandidate().getSSN() == ssn) found = true;
-        current = current->getLink();
+        else current = current->getLink();
     }
     if (!found) cout << "Not found." << endl;
     else current->getCandidate().printName();
@@ -44,11 +48,12 @@ void CandidateList::printAllCandidates() const {
     Node *current = first;
     while (current != NULL) {
         current->getCandidate().printCandidateInfo();
+        current = current->getLink();
     }
 }
 
 void CandidateList::printCandidateDivisionVotes(int ssn, int divNum) const {
-    if (count == 0) cout << "The list is empty." << endl;
+    if (count == 0) cout << "List is empty." << endl;
     else {
         Node *current = first; bool found = false;
         while (!found && current != NULL) {
@@ -61,7 +66,7 @@ void CandidateList::printCandidateDivisionVotes(int ssn, int divNum) const {
 }
 
 void CandidateList::printCandidateTotalVotes(int ssn) const {
-    if (count == 0) cout << "The list is empty." << endl;
+    if (count == 0) cout << "List is empty." << endl;
     else {
         Node *current = first; bool found = false;
         while (!found && current != NULL) {
@@ -69,6 +74,7 @@ void CandidateList::printCandidateTotalVotes(int ssn) const {
                 current->getCandidate().printCandidateTotalVotes();
                 found = true;
             }
+            current = current->getLink();
         }
     }
 }
@@ -83,6 +89,7 @@ void CandidateList::destroyList() {
     }
     first = NULL;
     last = NULL;
+    count = 0;
 }
 
 CandidateList::~CandidateList() { destroyList(); }

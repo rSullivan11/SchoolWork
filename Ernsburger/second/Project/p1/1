@@ -34,20 +34,21 @@ int CandidateType::getVotesByDivision(int divNum) const {
 
 void CandidateType::printCandidateInfo() const {
     Person::printSSN();
-    cout << " - ";
+    cout << " ";
     Person::printName();
     cout << endl;
 }
 
 void CandidateType::printCandidateTotalVotes() const {
-    //Person::printName();
-    cout << "Total Votes: " << totalVotes;
+    Person::printName();
+    cout << "\n"
+         << "   Total Votes (all divisions): " << totalVotes;
 }
 
 void CandidateType::printCandidateDivisionVotes(int divNum) const {
-    //Person::printName();
-    cout << "Division " << divNum << ": " << infoArray[divNum]
-         << endl;
+    Person::printName();
+    cout << "\n"
+         << "    Division " << divNum << " total votes: " << infoArray[divNum];
 }
 
 CandidateType::~CandidateType() {}
