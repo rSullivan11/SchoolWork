@@ -1,65 +1,101 @@
-/*
- * Sullivan, Ryan
- * CS A250
- * February 13, 2016
- *
- *  Project 1B
- */
+#include "InputHandler.h"
 
-#include "CandidateType.h"
-
+#include <iostream>
+#include <fstream>
+#include <string>
 using namespace std;
 
-int main() {
-    Person p1("John", "Appleseed", 123456789);
-    Person p2;
+void displayMenu();
+void processChoice(CandidateList& candidateList);
 
-    p2.setPersonInfo("Betty", "Bitch", 987666543);
+int main()
+{
+	CandidateList candidateList;
 
-    cout << "\n"
-         << p1.getFirstName() << " "
-         << p1.getLastName() << " "
-         << p2.getLastName() << " "
-         << p2.getSSN() << endl;
+	readCandidateData(candidateList);
+	displayMenu();
+	processChoice(candidateList);
 
-    p2.printName();
+	cout  <<  endl;
+	system("Pause");
+	return 0;
+}
 
-    cout << endl;
+void displayMenu()
+{
+	cout << "\n*** MAIN MENU ***\n";
+	cout << "\nSelect one of the following:\n\n";
+	cout << "    1: Print all candidates" << endl;
+	cout << "    2: Print a candidate's division votes" << endl;
+	cout << "    3: Print a candidate's total votes" << endl;
+	cout << "    4: Print winner" << endl;
+	cout << "    5: To exit" << endl;
+}
 
-    p2.printPersonInfo();
+void processChoice(CandidateList& candidateList)
+{
+	int choice;
+	cout << "\nEnter your choice: ";
+	cin >> choice; 
 
-    p1.~Person();
-    p2.~Person();
+	while (choice > 0 && choice < 5)
+	{
+		string fName, lName;
+		int division = 0,
+			ssn = 0;
 
-    CandidateType c1("Bob", "Barker", 123456789);
+		switch(choice)
+		{
+			// Print all candidates
+		case 1: 
+			cout << endl;
+			candidateList.printAllCandidates();
+			break;
 
-    c1.updateVotesByDivision(0, 1000);
-    c1.updateVotesByDivision(1, 1);
-    c1.updateVotesByDivision(2, 250);
+			// Print a candidates's division votes
+		case 2: 
+			cout << "\nEnter candidate's social security number (no dashes): ";
+			cin >> ssn;
+			cout << endl;
+			candidateList.printCandidateName(ssn);
+			cout << endl;
+			for (int i = 0; i < NUM_OF_DIVISIONS; ++i)
+				candidateList.printCandidateDivisionVotes(ssn,i);
+			break;
 
-    cout << "\nTesting printCandidateInfo:" << endl;
-    c1.printCandidateInfo();
+			// Print a candidate's total votes
+		case 3: 
+			cout << "\nEnter candidate's social security number (no dashes): ";
+			cin >> ssn;
+			cout << endl;
+			candidateList.printCandidateName(ssn);
+			cout << endl;
+			candidateList.printCandidateTotalVotes(ssn);
+			break;
 
-    cout << "\n\nTesting printCandidateDivisionVotes:" << endl;
-        c1.printCandidateDivisionVotes(0);
-    cout << endl;
-        c1.printCandidateDivisionVotes(1);
-    cout << endl;
-        c1.printCandidateDivisionVotes(2);
-    cout << endl;
-        c1.printCandidateDivisionVotes(3);
+			// Print winner
+		case 4: 
+			ssn = candidateList.getWinner();
+			if (ssn != 0)
+			{
+				cout << "\nElection winner: ";
+				candidateList.printCandidateName(ssn);
+				cout << endl;
+				candidateList.printCandidateTotalVotes(ssn);
+				cout << endl;
+			}
+			else
+			{
+				cout << "\nThere are no candidates." << endl;
+			}
+			break;
 
-    cout << "\n\nTesting getVotesByDivision:" << endl;
-    cout << c1.getVotesByDivision(0) << "\n"
-         << c1.getVotesByDivision(1) << "\n"
-         << c1.getVotesByDivision(2) << "\n"
-         << c1.getVotesByDivision(3) << endl;
+		default: 
+			cout << "Sorry. That is not a selection." << endl;
+		}
 
-    cout << "\nTesting getTotalVotes:\n"
-         << c1.getTotalVotes() << endl;
-
-    cout << "\nTesting printCandidateTotalVotes:" << endl;
-    c1.printCandidateTotalVotes();
-
-    return 0;
+		displayMenu();
+		cout << "\nEnter your choice: ";
+		cin >> choice;
+	}
 }
