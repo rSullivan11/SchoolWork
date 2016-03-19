@@ -26,6 +26,7 @@ class CandidateList
 {
 public:
     CandidateList();
+    ~CandidateList();
 
     void addCandidate(const CandidateType&);
 
@@ -35,11 +36,10 @@ public:
     void printAllCandidates() const;
     void printCandidateDivisionVotes(int, int) const;
     void printCandidateTotalVotes(int) const;
+    void printFinalResult() const;
 
     void destroyList();
-
-    ~CandidateList();
-
+    
 private:
 	Node *first; 	// pointer to point to the first candidate in the list
 	Node *last;		// pointer to point to last candidate in the list

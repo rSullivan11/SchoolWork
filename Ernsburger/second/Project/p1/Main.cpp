@@ -29,7 +29,8 @@ void displayMenu()
 	cout << "    2: Print a candidate's division votes" << endl;
 	cout << "    3: Print a candidate's total votes" << endl;
 	cout << "    4: Print winner" << endl;
-	cout << "    5: To exit" << endl;
+    cout << "    5: Print results" << endl;
+	cout << "    6: To exit" << endl;
 }
 
 void processChoice(CandidateList& candidateList)
@@ -50,6 +51,7 @@ void processChoice(CandidateList& candidateList)
 		case 1:
 			cout << endl;
 			candidateList.printAllCandidates();
+            system("Pause");
 			break;
 
 			// Print a candidates's division votes
@@ -61,6 +63,7 @@ void processChoice(CandidateList& candidateList)
 			cout << endl;
 			for (int i = 0; i < NUM_OF_DIVISIONS; ++i)
 				candidateList.printCandidateDivisionVotes(ssn,i);
+            system("Pause");
 			break;
 
 			// Print a candidate's total votes
@@ -71,6 +74,7 @@ void processChoice(CandidateList& candidateList)
 			candidateList.printCandidateName(ssn);
 			cout << endl;
 			candidateList.printCandidateTotalVotes(ssn);
+            system("Pause");
 			break;
 
 			// Print winner
@@ -88,7 +92,12 @@ void processChoice(CandidateList& candidateList)
 			{
 				cout << "\nThere are no candidates." << endl;
 			}
+            system("Pause");
 			break;
+        case 5:
+            candidateList.printFinalResult();
+            system("Pause");
+            break;
 
 		default:
 			cout << "Sorry. That is not a selection." << endl;

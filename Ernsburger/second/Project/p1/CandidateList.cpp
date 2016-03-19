@@ -79,6 +79,11 @@ void CandidateList::printCandidateTotalVotes(int ssn) const {
     }
 }
 
+void CandidateList::printFinalResult() const {
+    if (count == 0) cerr << "The list is empty." << endl;
+}
+
+
 void CandidateList::destroyList() {
     Node *current = first;
     while (first != NULL) {
