@@ -39,7 +39,7 @@ void processChoice(CandidateList& candidateList)
 	cout << "\nEnter your choice: ";
 	cin >> choice;
 
-	while (choice > 0 && choice < 5)
+	while (choice > 0 && choice < 6)
 	{
 		string fName, lName;
 		int division = 0,
@@ -96,6 +96,7 @@ void processChoice(CandidateList& candidateList)
 			break;
         case 5:
             candidateList.printFinalResult();
+            cout << endl;
             system("Pause");
             break;
 

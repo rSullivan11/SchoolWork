@@ -81,6 +81,43 @@ void CandidateList::printCandidateTotalVotes(int ssn) const {
 
 void CandidateList::printFinalResult() const {
     if (count == 0) cerr << "The list is empty." << endl;
+    else {
+        Node *current = first, *can =NULL;
+        int crntMost = 0, bound = 0;
+        do {
+            if (current->getCandidate().getTotalVotes() > crntMost) {
+                crntMost = current->getCandidate().getTotalVotes();
+                can = current;
+            }
+
+            current = current->getLink();
+        } while(current != NULL);
+        cout << "FINAL RESULTS\n"
+             << "-------------" << endl;
+        cout << count << ' '
+             << can->getCandidate().getTotalVotes();
+        cout << ' '; can->getCandidate().printName();
+        bound = crntMost;
+
+        for (int i = 1; i < count; ++i) {
+            current = first; crntMost = 0;
+            do {
+                if (current->getCandidate().getTotalVotes() < bound &&
+                    current->getCandidate().getTotalVotes() > crntMost) {
+                    crntMost = current->getCandidate().getTotalVotes();
+                    can = current;
+                }
+
+                current = current->getLink();
+            } while(current != NULL);
+
+            cout << '\n' << count - i << ' '
+                 << can->getCandidate().getTotalVotes();
+            cout << ' '; can->getCandidate().printName();
+            bound = crntMost;
+        }
+
+    }
 }
 
 
