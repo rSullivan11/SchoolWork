@@ -92,13 +92,14 @@ void CandidateList::printFinalResult() const {
 
             current = current->getLink();
         } while(current != NULL);
+
         cout << "FINAL RESULTS\n"
              << "-------------" << endl;
         cout << count << ' '
              << can->getCandidate().getTotalVotes();
         cout << ' '; can->getCandidate().printName();
-        bound = crntMost;
 
+        bound = crntMost;
         for (int i = 1; i < count; ++i) {
             current = first; crntMost = 0;
             do {
