@@ -50,6 +50,7 @@ void CandidateList::printAllCandidates() const {
         current->getCandidate().printCandidateInfo();
         current = current->getLink();
     }
+	cout << endl;
 }
 
 void CandidateList::printCandidateDivisionVotes(int ssn, int divNum) const {
@@ -82,8 +83,11 @@ void CandidateList::printCandidateTotalVotes(int ssn) const {
 void CandidateList::printFinalResult() const {
     if (count == 0) cerr << "The list is empty." << endl;
     else {
+
+// ------------{ Find largest }-------------------------------
+
         Node *current = first, *can =NULL;
-        int crntMost = 0, bound = 0;
+        int crntMost = 0, bound = 0; // bound to ensure no can prints twice; since no ties
         do {
             if (current->getCandidate().getTotalVotes() > crntMost) {
                 crntMost = current->getCandidate().getTotalVotes();
@@ -93,13 +97,20 @@ void CandidateList::printFinalResult() const {
             current = current->getLink();
         } while(current != NULL);
 
-        cout << "FINAL RESULTS\n"
+// ----------{ END }----------------------------------------------
+// ----------{ Start of Printing  --------------------------------
+
+        cout << "\nFINAL RESULTS\n"
              << "-------------" << endl;
-        cout << count << ' '
+		cout << setw(2) << right
+			 << count << "  "
              << can->getCandidate().getTotalVotes();
         cout << ' '; can->getCandidate().printName();
+        bound = crntMost; // set largest as first bound
 
-        bound = crntMost;
+// ----------{ END }-----------------------------------------------
+// ----------{ Find winner with respect to last winner }-----------
+
         for (int i = 1; i < count; ++i) {
             current = first; crntMost = 0;
             do {
@@ -112,13 +123,19 @@ void CandidateList::printFinalResult() const {
                 current = current->getLink();
             } while(current != NULL);
 
-            cout << '\n' << count - i << ' '
-                 << can->getCandidate().getTotalVotes();
-            cout << ' '; can->getCandidate().printName();
-            bound = crntMost;
-        }
+// -----------{ Printing each new winner }---------------------------
 
+			cout << '\n' << setw(2) << right
+				 << count - i << "  ";
+            cout << setw(3) << left 
+				 << can->getCandidate().getTotalVotes();
+            cout << ' '; can->getCandidate().printName();
+            bound = crntMost; // set new winner to new bound
+
+// ----------{ END }-------------------------------------------------
+        }
     }
+	cout << endl;
 }
 
 

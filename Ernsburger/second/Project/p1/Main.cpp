@@ -1,3 +1,10 @@
+/*
+ * Sullivan, Ryan
+ * March 21, 2016
+ *
+ *  Project1 D
+ */
+
 #include "InputHandler.h"
 
 #include <iostream>
@@ -29,7 +36,7 @@ void displayMenu()
 	cout << "    2: Print a candidate's division votes" << endl;
 	cout << "    3: Print a candidate's total votes" << endl;
 	cout << "    4: Print winner" << endl;
-    cout << "    5: Print results" << endl;
+	cout << "    5; Print final results" << endl;
 	cout << "    6: To exit" << endl;
 }
 
@@ -63,7 +70,8 @@ void processChoice(CandidateList& candidateList)
 			cout << endl;
 			for (int i = 0; i < NUM_OF_DIVISIONS; ++i)
 				candidateList.printCandidateDivisionVotes(ssn,i);
-            system("Pause");
+			cout << endl;
+			system("Pause");
 			break;
 
 			// Print a candidate's total votes
@@ -74,6 +82,7 @@ void processChoice(CandidateList& candidateList)
 			candidateList.printCandidateName(ssn);
 			cout << endl;
 			candidateList.printCandidateTotalVotes(ssn);
+			cout << endl;
             system("Pause");
 			break;
 
@@ -92,6 +101,7 @@ void processChoice(CandidateList& candidateList)
 			{
 				cout << "\nThere are no candidates." << endl;
 			}
+			cout << endl;
             system("Pause");
 			break;
         case 5:

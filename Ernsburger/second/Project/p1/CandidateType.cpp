@@ -41,7 +41,7 @@ void CandidateType::printCandidateInfo() const {
 
 void CandidateType::printCandidateTotalVotes() const {
     //Person::printName();
-    cout << "Total Votes: " << totalVotes;
+	cout << "Total Votes: " << totalVotes;
 }
 
 void CandidateType::printCandidateDivisionVotes(int divNum) const {
