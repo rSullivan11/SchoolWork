@@ -1,42 +1,42 @@
-#include "Person.h"
+#include "PersonType.h"
 
 using namespace std;
 
-Person::Person() {
+PersonType::PersonType() {
     ssn = 0;
 }
 
-Person::Person(const string& newFirstName, const string& newLastName, int newSSN) {
+PersonType::PersonType(const string& firstName, const string& lastName, int ssn) {
+    this->firstName = firstName; this->lastName = lastName;
+    this->ssn = ssn;
+}
+
+void PersonType::setPersonInfo(const string& newFirstName, const string& newLastName, int newSSN) {
     firstName = newFirstName; lastName = newLastName;
     ssn = newSSN;
 }
 
-void Person::setPersonInfo(const string& newFirstName, const string& newLastName, int newSSN) {
-    firstName = newFirstName; lastName = newLastName;
-    ssn = newSSN;
-}
-
-string Person::getFirstName() const {
+string PersonType::getFirstName() const {
     return firstName;
 }
 
-string Person::getLastName() const {
+string PersonType::getLastName() const {
     return lastName;
 }
 
-int Person::getSSN() const {
+int PersonType::getSSN() const {
     return ssn;
 }
 
-void Person::printName() const {
+void PersonType::printName() const {
     cout << lastName << ", " << firstName;
 }
 
-void Person::printPersonInfo() const {
+void PersonType::printPersonInfo() const {
     printSSN(); cout << ' ' << firstName << ' ' << lastName << endl;
 }
 
-void Person::printSSN() const {
+void PersonType::printSSN() const {
     bool done = false; int a[9]; int i = 8, tempSSN = getSSN();
     while (!done) {
         a[i] = tempSSN % 10;
@@ -50,4 +50,4 @@ void Person::printSSN() const {
     }
 }
 
-Person::~Person() {}
+PersonType::~PersonType() {}

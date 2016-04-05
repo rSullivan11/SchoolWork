@@ -3,7 +3,7 @@
 using namespace std;
 
 CandidateType::CandidateType()
-             : Person() {
+             : PersonType() {
     totalVotes = 0;
 
     for (int i = 0; i < 4; ++i) {
@@ -12,7 +12,7 @@ CandidateType::CandidateType()
 }
 
 CandidateType::CandidateType(const string& fistName, const string& lastName, int ssn)
-             : Person(fistName, lastName, ssn) {
+             : PersonType(fistName, lastName, ssn) {
     totalVotes = 0;
 
     for (int i = 0; i < 4; ++i) {
@@ -33,19 +33,19 @@ int CandidateType::getVotesByDivision(int divNum) const {
 }
 
 void CandidateType::printCandidateInfo() const {
-    Person::printSSN();
+    printSSN();
     cout << " - ";
-    Person::printName();
+    printName();
     cout << endl;
 }
 
 void CandidateType::printCandidateTotalVotes() const {
-    //Person::printName();
+    printName();
 	cout << "Total Votes: " << totalVotes;
 }
 
 void CandidateType::printCandidateDivisionVotes(int divNum) const {
-    //Person::printName();
+    printName();
     cout << "Division " << divNum << ": " << infoArray[divNum]
          << endl;
 }

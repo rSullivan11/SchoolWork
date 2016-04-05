@@ -18,7 +18,7 @@ void CandidateList::addCandidate(const CandidateType& c) {
 }
 
 int CandidateList::getWinner() const {
-    if (count == 0) cout << "List is empty." << endl;
+    if (count == 0) cerr << "List is empty." << endl;
     else {
         int highest = 0, winner = 0;
         Node *current = first;
@@ -35,39 +35,48 @@ int CandidateList::getWinner() const {
 }
 
 void CandidateList::printCandidateName(int ssn) const {
-    Node *current = first; bool found = false;
-    while (!found && current != NULL) {
-        if (current->getCandidate().getSSN() == ssn) found = true;
-        else current = current->getLink();
-    }
-    if (!found) cout << "Not found." << endl;
-    else current->getCandidate().printName();
-}
-
-void CandidateList::printAllCandidates() const {
-    Node *current = first;
-    while (current != NULL) {
-        current->getCandidate().printCandidateInfo();
-        current = current->getLink();
-    }
-	cout << endl;
-}
-
-void CandidateList::printCandidateDivisionVotes(int ssn, int divNum) const {
-    if (count == 0) cout << "List is empty." << endl;
+    if (count == 0) cerr << "The list is empty." << endl;
     else {
         Node *current = first; bool found = false;
         while (!found && current != NULL) {
+            if (current->getCandidate().getSSN() == ssn) found = true;
+            else current = current->getLink();
+        }
+        if (!found) cout << "SSN not in the list." << endl;
+        else current->getCandidate().printName();
+    }
+}
+
+void CandidateList::printAllCandidates() const {
+    if (count == 0) cerr << "The list is empty." << endl;
+    else {
+        Node *current = first;
+        while (current != NULL) {
+            current->getCandidate().printCandidateInfo();
+            current = current->getLink();
+        }
+        cout << endl;
+    }
+}
+
+void CandidateList::printCandidateDivisionVotes(int ssn, int divNum) const {
+    if (count == 0) cerr << "List is empty." << endl;
+    else {
+        Node *current = first; int votes = 0;
+        bool found = false;
+        while (!found && current != NULL) {
             if (current->getCandidate().getSSN() == ssn) {
-                current->getCandidate().printCandidateDivisionVotes(divNum);
+                votes = current->getCandidate().getVotesByDivision(divNum);
                 found = true;
             }
+            else current = current->getLink();
         }
+        if (found) cout << "Division " << divNum << ": " << votes << endl;
     }
 }
 
 void CandidateList::printCandidateTotalVotes(int ssn) const {
-    if (count == 0) cout << "List is empty." << endl;
+    if (count == 0) cerr << "List is empty." << endl;
     else {
         Node *current = first; bool found = false;
         while (!found && current != NULL) {
@@ -75,7 +84,7 @@ void CandidateList::printCandidateTotalVotes(int ssn) const {
                 current->getCandidate().printCandidateTotalVotes();
                 found = true;
             }
-            current = current->getLink();
+            else current = current->getLink();
         }
     }
 }
@@ -147,8 +156,7 @@ void CandidateList::destroyList() {
         current = first;
 
     }
-    first = NULL;
-    last = NULL;
+    first = NULL; last = NULL;
     count = 0;
 }
 

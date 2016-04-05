@@ -1,13 +1,14 @@
+
 #ifndef PERSON_H
 #define PERSON_H
 
 #include <string>
 #include <iostream>
 
-class Person {
+class PersonType {
     public:
-        Person();
-        Person(const std::string&, const std::string&, int);
+        PersonType();
+        PersonType(const std::string&, const std::string&, int);
 
         void setPersonInfo(const std::string&, const std::string&, int);
 
@@ -19,7 +20,7 @@ class Person {
         void printPersonInfo() const;
         void printSSN() const;
 
-        ~Person();
+        ~PersonType();
 
     private:
         std::string firstName;
