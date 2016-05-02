@@ -2,6 +2,7 @@
 #define DARRAY_H
 
 #include <iostream>
+#include <stack>
 using namespace std;
 
 
@@ -15,7 +16,7 @@ public:
 	//Default constructor -	initializes array 
 	//						with a capacity of 50.
 
-	DArray(int);
+	//DArray(int);
 	//Constructor - initializes array with a given capacity.
 	//@param int - capacity of the array.
 
@@ -27,9 +28,9 @@ public:
 	int getUsed() const;
 
 	bool isEmpty() const;
-	bool isFull() const;
+	//bool isFull() const;
 
-	T& operator[](int) const;
+	//T& operator[](int) const;
 
 	void deleteElem(T);
 
@@ -39,9 +40,10 @@ public:
 	//Destructor
 
 private:
-	T *a;			//will point to an int (it will be an array)
-	int capacity;	//capacity of the array
-	int used;		//total number of elements in the array
+	//T *a;			//will point to an int (it will be an array)
+	stack<T> a;
+	//int capacity;	//capacity of the array
+	//int used;		//total number of elements in the array
 
 };
 

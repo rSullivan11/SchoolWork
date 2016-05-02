@@ -1,165 +1,135 @@
 #include "CandidateList.h"
 
 // Function definitions
-CandidateList::CandidateList() {
-    first = NULL;
-    last = NULL;
-    count = 0;
-}
+CandidateList::CandidateList() {}
 
 void CandidateList::addCandidate(const CandidateType& c) {
-    Node *add = new Node(c, NULL);
-    if (count == 0) { first = add; last = add; }
-    else {
-        last->setLink(add);
-        last = add;
-    }
-    ++count;
+	//if (candidates.capacity - candidates.size < 5)
+	//	candidates.assign(candidates.capacity + 15);
+	candidates.push_back(c);
 }
 
 int CandidateList::getWinner() const {
-    if (count == 0) cerr << "List is empty." << endl;
-    else {
-        int highest = 0, winner = 0;
-        Node *current = first;
-        do {
-            if (current->getCandidate().getTotalVotes() > highest) {
-                highest = current->getCandidate().getTotalVotes();
-                winner = current->getCandidate().getSSN();;
-            }
-            current = current->getLink();
-        } while (current != NULL);
-        return winner;
-    }
-    return 0;
+	int highest = 0, winner = 0;
+	for (auto i : candidates) {
+		if (i.getTotalVotes() > highest) {
+			highest = i.getTotalVotes();
+			winner = i.getSSN();;
+		}
+	}
+    return winner;
 }
 
 void CandidateList::printCandidateName(int ssn) const {
-    if (count == 0) cerr << "The list is empty." << endl;
-    else {
-        Node *current = first; bool found = false;
-        while (!found && current != NULL) {
-            if (current->getCandidate().getSSN() == ssn) found = true;
-            else current = current->getLink();
-        }
-        if (!found) cout << "SSN not in the list.";
-        else current->getCandidate().printName();
-    }
+	vector<CandidateType>::const_iterator vectIter;
+	vectIter = candidates.begin();
+
+	searchCandidateLocation(ssn, vectIter);
+	
+    vectIter->printName();
 }
 
 void CandidateList::printAllCandidates() const {
-    if (count == 0) cerr << "The list is empty." << endl;
-    else {
-        Node *current = first;
-        while (current != NULL) {
-            current->getCandidate().printCandidateInfo();
-            current = current->getLink();
-        }
-        cout << endl;
+	for (auto i : candidates) {
+        i.printCandidateInfo();
     }
+    cout << endl;
 }
 
 void CandidateList::printCandidateDivisionVotes(int ssn, int divNum) const {
-    if (count == 0) cerr << "List is empty." << endl;
-    else {
-        Node *current = first; int votes = 0;
-        bool found = false;
-        while (!found && current != NULL) {
-            if (current->getCandidate().getSSN() == ssn) {
-                votes = current->getCandidate().getVotesByDivision(divNum);
-                found = true;
-            }
-            else current = current->getLink();
-        }
-        if (found) cout << "Division " << divNum << ": " << votes << endl;
-    }
+	vector<CandidateType>::const_iterator vectIter;
+	vectIter = candidates.begin();
+
+	int votes = 0;
+	searchCandidateLocation(ssn, vectIter);
+
+    votes = vectIter->getVotesByDivision(divNum);
+    cout << "Division " << divNum << ": " << votes << endl;
 }
 
 void CandidateList::printCandidateTotalVotes(int ssn) const {
-    if (count == 0) cerr << "List is empty." << endl;
-    else {
-		Node *current = first; int votes = 0;
-		bool found = false;
-        while (!found && current != NULL) {
-            if (current->getCandidate().getSSN() == ssn) {
-                votes = current->getCandidate().getTotalVotes();
-                found = true;
-            }
-            else current = current->getLink();
-        }
-		cout << "Total votes: " << votes << endl;
-    }
+	vector<CandidateType>::const_iterator vectIter;
+	vectIter = candidates.begin();
+
+	int votes = 0;
+	searchCandidateLocation(ssn, vectIter);
+	
+    votes = vectIter->getTotalVotes();
+	cout << "Total votes: " << votes << endl;
 }
 
 void CandidateList::printFinalResult() const {
-    if (count == 0) cerr << "The list is empty." << endl;
-    else {
-
 // ------------{ Find largest }-------------------------------
+	vector<CandidateType>::const_iterator vectIter;
+	vectIter = candidates.begin();
+	CandidateType *can = NULL;
+	int count = candidates.size();
 
-        Node *current = first, *can =NULL;
-        int crntMost = 0, bound = 0; // bound to ensure no doubles; since no ties
-        do {
-            if (current->getCandidate().getTotalVotes() > crntMost) {
-                crntMost = current->getCandidate().getTotalVotes();
-                can = current;
-            }
-
-            current = current->getLink();
-        } while(current != NULL);
+    int crntMost = 0, bound = 0; // bound to ensure no doubles; since no ties
+    do {
+        if (vectIter->getTotalVotes() > crntMost) {
+            crntMost = vectIter->getTotalVotes();
+			can = vectIter._Ptr;
+        }
+		++vectIter;
+    } while(vectIter != candidates.end());
 
 // ----------{ END }----------------------------------------------
 // ----------{ Start of Printing  --------------------------------
 
-        cout << "\nFINAL RESULTS\n"
-             << "-------------" << endl;
-		cout << setw(2) << right
-			 << count << "  "
-             << can->getCandidate().getTotalVotes();
-        cout << ' '; can->getCandidate().printName();
-        bound = crntMost; // set largest as first bound
+    cout << "\nFINAL RESULTS\n"
+         << "-------------" << endl;
+	cout << setw(2) << right
+		 << count-- << "  "
+         << can->getTotalVotes();
+    cout << ' '; can->printName();
+    bound = crntMost; // set largest as first bound
 
 // ----------{ END }-----------------------------------------------
 // ----------{ Find winner with respect to last winner }-----------
 
-        for (int i = 1; i < count; ++i) {
-            current = first; crntMost = 0;
-            do {
-                if (current->getCandidate().getTotalVotes() < bound &&
-                    current->getCandidate().getTotalVotes() > crntMost) {
-                    crntMost = current->getCandidate().getTotalVotes();
-                    can = current;
-                }
-
-                current = current->getLink();
-            } while(current != NULL);
+    for (int i = 1; i < count; ++i) {
+        vectIter = candidates.begin(); crntMost = 0;
+        do {
+            if (vectIter->getTotalVotes() < bound &&
+                vectIter->getTotalVotes() > crntMost) {
+                crntMost = vectIter->getTotalVotes();
+				can = vectIter._Ptr;
+            }
+			++vectIter;
+        } while(vectIter != candidates.end());
 
 // -----------{ Printing each new winner }---------------------------
 
-			cout << '\n' << setw(2) << right
-				 << count - i << "  ";
-            cout << setw(3) << left 
-				 << can->getCandidate().getTotalVotes();
-            cout << ' '; can->getCandidate().printName();
-            bound = crntMost; // set new winner to new bound
+		cout << '\n' << setw(2) << right
+			 << count - i << "  ";
+        cout << setw(3) << left 
+			 << can->getTotalVotes();
+        cout << ' '; can->printName();
+        bound = crntMost; // set new winner to new bound
 
 // ----------{ END }-------------------------------------------------
-        }
     }
 	cout << endl;
 }
 
-
-void CandidateList::destroyList() {
-    Node *current = first;
-    while (first != NULL) {
-        first = first->getLink();
-        delete current;
-        current = first;
-
-    }
-    first = NULL; last = NULL;
-    count = 0;
+bool CandidateList::isEmpty() const {
+	return candidates.size() == 0;
 }
 
-CandidateList::~CandidateList() { destroyList(); }
+bool CandidateList::searchCandidate(int ssn) const {
+	vector<CandidateType>::const_iterator vectIter;
+	return searchCandidateLocation(ssn, vectIter);
+}
+
+bool CandidateList::searchCandidateLocation(int ssn, vector<CandidateType>::const_iterator& vectIter) const {
+	bool found = false;
+	while (!found && vectIter != candidates.end()) {
+		if (vectIter->getSSN() == ssn) found = true;
+		else ++vectIter;
+	}
+	if (found) return true;
+	return false;
+}
+
+CandidateList::~CandidateList() {}

@@ -4,28 +4,28 @@ template<typename T>
 DArray<T>::DArray()
 {
 	capacity = 50;
-	a = new int[capacity];
+	a = new T[capacity];
 	used = 0;
 }
 
-template<typename T>
+/*template<typename T>
 DArray<T>::DArray(int newCapacity)
 {
 	capacity = newCapacity;
 	a = new T[capacity];
 	used = 0;
-}
+}*/
 
 template<typename T>
-void DArray<T>::addElement(T element)
-{
-	if (used >= capacity)
+void DArray<T>::addElement(T element) {
+	/*if (used >= capacity)
 	{
 		cerr << "Attempt to exceed capacity in DArray.\n";
 		exit(0);
 	}
 	a[used] = element;
-	++used;
+	++used;*/
+	a.push(element);
 }
 
 template<typename T>
