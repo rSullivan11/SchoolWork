@@ -65,15 +65,15 @@ template<typename T>
 void DArray<T>::deleteElem(T elem) {
 	int i = 0; bool found = false;
 	while (i < used && !found) {
-		if (this->a[i] == elem) found = true;
+		if (a[i] == elem) found = true;
 		else ++i;
 	}
 	if (found) {
 
 		for (int j = i; j < used - 1; ++j) {
-			this->a[j] = this->a[j + 1];
+			a[j] = a[j + 1];
 		}
-		this->used--;
+		--used;
 	}
 }
 
