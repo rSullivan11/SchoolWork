@@ -1,8 +1,9 @@
 /*
  * Sullivan, Ryan
- * April 11, 2016
+ * May 5, 2016
+ * CS A250
  *
- *  Project1 D
+ *  Project2 B
  */
 
 #include "InputHandler.h"
@@ -36,7 +37,7 @@ void displayMenu()
 	cout << "    2: Print a candidate's division votes" << endl;
 	cout << "    3: Print a candidate's total votes" << endl;
 	cout << "    4: Print winner" << endl;
-	cout << "    5; Print final results" << endl;
+	cout << "    5: Print final results" << endl;
 	cout << "    6: To exit" << endl;
 }
 
@@ -66,12 +67,13 @@ void processChoice(CandidateList& candidateList)
 
 			// Print a candidates's division votes
 		case 2:
+			cout << "\nEnter candidate's social security number (no dashes): ";
+			cin >> ssn;
+			cout << endl;
+
 			if (candidateList.isEmpty()) cerr << "List is empty." << endl;
 			else if (!candidateList.searchCandidate(ssn)) cout << "SSN not found" << endl;
 			else {
-				cout << "\nEnter candidate's social security number (no dashes): ";
-				cin >> ssn;
-				cout << endl;
 				candidateList.printCandidateName(ssn);
 				cout << endl;
 				for (int i = 0; i < NUM_OF_DIVISIONS; ++i)
@@ -83,12 +85,13 @@ void processChoice(CandidateList& candidateList)
 
 			// Print a candidate's total votes
 		case 3:
+			cout << "\nEnter candidate's social security number (no dashes): ";
+			cin >> ssn;
+			cout << endl;
+
 			if (candidateList.isEmpty()) cerr << "List is empty." << endl;
 			else if (!candidateList.searchCandidate(ssn)) cout << "SSN not found" << endl;
 			else {
-				cout << "\nEnter candidate's social security number (no dashes): ";
-				cin >> ssn;
-				cout << endl;
 				candidateList.printCandidateName(ssn);
 				cout << endl;
 				candidateList.printCandidateTotalVotes(ssn);
@@ -100,7 +103,6 @@ void processChoice(CandidateList& candidateList)
 			// Print winner
 		case 4:
 			if (candidateList.isEmpty()) cerr << "List is empty." << endl;
-			else if (!candidateList.searchCandidate(ssn)) cout << "SSN not found" << endl;
 			else {
 				ssn = candidateList.getWinner();
 				if (ssn != 0)

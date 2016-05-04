@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -15,7 +16,10 @@ public:
     CandidateList();
     ~CandidateList();
 
-    void addCandidate(const CandidateType&);
+	/*CandidateList(const CandidateList&);
+	CandidateList& operator=(const CandidateList) const;*/
+
+    void addCandidate(const CandidateType&) const;
 
     int getWinner() const;
 
@@ -32,7 +36,7 @@ public:
 private:
 	bool searchCandidateLocation(int, vector<CandidateType>::const_iterator&) const;
 
-	vector<CandidateType> candidates;
+	vector<CandidateType> *candidates;
 };
 
 #endif

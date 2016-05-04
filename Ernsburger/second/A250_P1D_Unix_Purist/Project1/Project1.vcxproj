@@ -71,7 +71,6 @@
     <ClInclude Include="PersonType.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Batcave\SchoolWork\Ernsburger\second\Project\p1\candidates_data.txt" />
     <Text Include="candidates_data.txt" />
   </ItemGroup>
   <ItemGroup>

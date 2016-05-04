@@ -32,8 +32,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\..\Batcave\SchoolWork\Ernsburger\second\Project\p1\candidates_data.txt" />
-    <Text Include="candidates_data.txt" />
+    <Text Include="candidates_data.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CandidateList.cpp">
