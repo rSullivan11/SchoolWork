@@ -16,8 +16,8 @@ public:
     CandidateList();
     ~CandidateList();
 
-	/*CandidateList(const CandidateList&);
-	CandidateList& operator=(const CandidateList) const;*/
+	CandidateList(const CandidateList&);
+	CandidateList& operator=(const CandidateList);
 
     void addCandidate(const CandidateType&) const;
 

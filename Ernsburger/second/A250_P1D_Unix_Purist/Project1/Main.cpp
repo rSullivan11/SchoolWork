@@ -117,7 +117,7 @@ void processChoice(CandidateList& candidateList)
 				{
 					cout << "\nThere are no candidates." << endl;
 				}
-				cout << endl;
+				//cout << endl;
 				system("Pause");
 			}
 			break;

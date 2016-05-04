@@ -7,20 +7,26 @@ CandidateList::CandidateList() {
 
 CandidateList::~CandidateList() { delete candidates; }
 
-//CandidateList::CandidateList(const CandidateList& c) {
-//	for (auto i : c->candidates) {
-//
-//	}
-//}
-//
-//CandidateList& CandidateList::operator=(const CandidateList c) const {
-//	if (&c != this) {
-//
-//	} else
-//		cerr << "Attemped assignment to itself.";
-//
-//	return *this;
-//}
+CandidateList::CandidateList(const CandidateList& c) {
+	this->candidates->clear();
+
+	for (auto i : *c.candidates) {
+		this->candidates->push_back(i);
+	}
+}
+
+CandidateList& CandidateList::operator=(const CandidateList c) {
+	if (&c != this) {
+		this->candidates->clear();
+
+		for (auto i : *c.candidates) {
+			this->candidates->push_back(i);
+		}
+	} else
+		cerr << "Attemped assignment to itself.";
+
+	return *this;
+}
 
 void CandidateList::addCandidate(const CandidateType& c) const {
 	//if (candidates.capacity - candidates.size < 5)
